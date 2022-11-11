@@ -1,0 +1,119 @@
+.page_container{
+    border: 1px solid black;
+    margin: 5px;
+    width: 99%;
+    height: 98vh;
+}
+
+ /*  <-------------CheckBox csss here----------->  */
+ .checkbox_container{
+     display: flex;
+     margin-top: 20px;
+     margin-left: 40px;
+  }
+
+ .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    margin-left: 25px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+ /* <---------------- Here all boxes---------------------------------------->   */
+
+ .main_box{
+     display: flex;
+     justify-content: space-evenly;
+     margin-top: 7%;
+ }
+
+ .innerbox_header1{
+     border: 2px solid black;
+     text-align: center;
+     width: 70px;
+ }
+ .innerbox_header2{
+    border: 2px solid black;
+    text-align: center;
+    width: 120px;
+}
+ .innerbox_content{
+    border: 1px solid black;
+    width: 300px;
+    height: 400px;
+    padding-left: 10px;
+    overflow-y: auto;
+ }
+ #Icon_mainBox{
+     display: flex;
+     flex-flow: column;
+     justify-content: center;
+ }
+ .icon_box{
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+ }
