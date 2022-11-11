@@ -1,11 +1,13 @@
 
 import './App.css';
 import { Home } from './components/Home';
+import { LocalHome } from './components/LocalHome';
 
 function App() {
   return (
     <div>
-        <Home/>
+        {/* <Home/> */}
+        <LocalHome/>
     </div>
   );
 }

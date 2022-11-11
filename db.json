@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "Vikash Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
@@ -17,15 +17,15 @@
     {
       "id": 3,
       "name": "Ravi Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 4,
       "name": "Akash Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
@@ -59,64 +59,64 @@
     {
       "id": 9,
       "name": "Sonu Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 10,
       "name": "Prince Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 11,
       "name": "Anand Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 12,
       "name": "Antu Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 13,
       "name": "Anshu Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 14,
       "name": "Rajat Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 15,
       "name": "Sanda Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 16,
       "name": "Manish Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     },
     {
       "id": 17,
       "name": "Abhishek Kumar",
-      "master": true,
-      "newElement": false,
+      "master": false,
+      "newElement": true,
       "enable_disable": false
     }
   ]
