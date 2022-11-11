@@ -1,12 +1,23 @@
 import React from 'react'
 import "./Home.css"
 import {  FiChevronLeft,FiChevronRight,FiChevronsLeft,FiChevronsRight } from "react-icons/fi";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getmasterData } from '../redux/action';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 export const Home = () => {
     const [master, setMaster] = useState("");
+    const masterData = useSelector((state)=>state.reducer.masterdata);
+    const dispatch = useDispatch();
 
+    useEffect(()=>{
+      if(masterData.length === 0){
+         dispatch(getmasterData());
+      }    
+    },[dispatch]);
+
+     console.log("data", masterData);
      console.log( "master",master);
   return (
     <div className='page_container'>
@@ -30,22 +41,12 @@ export const Home = () => {
            <div>
             <p className='innerbox_header1'>Master</p>
             <div className='innerbox_content'>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
+              {
+                masterData.length > 0 && masterData.map((e)=>(
+                  <p key={e.id}  style={{background : `${e.master == false ? "red" : ""}`}} >{`${e.master == true ? e.name : "Data copyed/moved"}`} </p> 
+                ))
+              }
+            
             </div>
            </div>
             {/* box2 here */}
@@ -59,14 +60,12 @@ export const Home = () => {
            <div>
             <p className='innerbox_header2'>New Elements</p>
              <div className='innerbox_content' >
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
-            <p>vikash kumar</p>
+             {
+              masterData.length  > 0 && masterData.filter((a)=>a.newElement == true).map((a)=>(
+                <p key={a.id}>{a.name}</p>
+              ))
+             }  
+                    
              </div>
            </div>
        </div>
