@@ -2,12 +2,13 @@ import React from 'react'
 import "./Home.css"
 import {  FiChevronLeft,FiChevronRight,FiChevronsLeft,FiChevronsRight } from "react-icons/fi";
 import { useState, useEffect } from 'react';
-import { getmasterData } from '../redux/action';
+import { getmasterData, editmasterData } from '../redux/action';
 import { useSelector, useDispatch } from 'react-redux';
 
 
 export const Home = () => {
     const [master, setMaster] = useState("");
+    const [editId, setEditId] = useState(0);
     const masterData = useSelector((state)=>state.reducer.masterdata);
     const dispatch = useDispatch();
 
@@ -17,6 +18,34 @@ export const Home = () => {
       }    
     },[dispatch]);
 
+    const editHandler = (Id,funType) =>{
+        console.log(Id,funType);
+        if(funType == "copy1" && Id){
+          const payload = {
+            "master":  false,
+            "newElement" : true,   
+           }
+             console.log("iddd",Id);
+            dispatch(editmasterData(Id,payload)).then(()=>{
+                  dispatch(getmasterData());
+            })
+        }else if(funType == "copyAll" && (master == "copy" || master == "move")  ){
+              for(var i=1; i<= masterData.length; i++){
+                const payload = {
+                  "master":  false,
+                  "newElement" : true,   
+                 }
+                   console.log("iddd",i);
+                  dispatch(editmasterData(i,payload)).then(()=>{
+                        dispatch(getmasterData());
+                  })
+              }
+        }
+      
+
+  };
+
+
      console.log("data", masterData);
      console.log( "master",master);
   return (
@@ -25,12 +54,12 @@ export const Home = () => {
         {/*here checkbox   */}
        <div className='checkbox_container'>
         <label className="container">
-        <input type="radio" name='radio' onChange={()=>setMaster("master")} />
+        <input type="radio" name='radio' onChange={()=>setMaster("copy")} />
         <span className="checkmark"></span>Copy
         </label>
 
        <label className="container">
-        <input type="radio" name='radio' onChange={()=>setMaster("newElement")} />
+        <input type="radio" name='radio' onChange={()=>setMaster("move")} />
         <span className="checkmark"></span>Move
        </label>
        </div>
@@ -43,7 +72,7 @@ export const Home = () => {
             <div className='innerbox_content'>
               {
                 masterData.length > 0 && masterData.map((e)=>(
-                  <p key={e.id}  style={{background : `${e.master == false ? "red" : ""}`}} >{`${e.master == true ? e.name : "Data copyed/moved"}`} </p> 
+                  <p key={e.id} onClick={()=>setEditId(e.id)}  style={{background : `${e.master == false ? "red" : e.id == editId ? "blue" :""}`}} >{`${e.master == true ? e.name : "Data copyed/moved"}`} </p> 
                 ))
               }
             
@@ -51,10 +80,10 @@ export const Home = () => {
            </div>
             {/* box2 here */}
            <div id='Icon_mainBox' >
+             <FiChevronRight onClick={()=>editHandler(editId,"copy1")}  className='icon_box'/>
              <FiChevronLeft className='icon_box' />
-             <FiChevronRight className='icon_box'/>
-             <FiChevronsLeft className='icon_box'/>
-             <FiChevronsRight className='icon_box'/>
+             <FiChevronsRight onClick={()=>editHandler(editId,"copyAll")}   className='icon_box'/>
+             <FiChevronsLeft className='icon_box'/>  
            </div>
             {/* Box3 here */}
            <div>
