@@ -1,0 +1,41 @@
+.container{
+    background-image: url(https://cdn0.weddingwire.in/vendor/2834/3_2/960/jpg/img-20190924-173327_15_72834-157734582917815.jpeg);
+     width: 100%;
+     height: 100vh;
+}
+.heading{
+     color: wheat;
+      font-weight: 1000;
+      font-size: xxx-large;
+      margin-left: 30%;
+}
+.box{
+    display :flex;
+     margin-left : 40%;
+      margin-top : 10% ;
+}
+
+.leftbox{
+    margin : 20px;
+     background :wheat;
+      width:100px;
+      height : 35px;
+     padding-top : 15px ;
+      cursor :pointer;
+     border-radius: 30px; 
+}
+ #link{
+     color: black;
+     font-weight: 700;
+     
+ }
+
+.rightbox{
+    margin : 20px;
+     background : wheat ;
+      width: 100px;
+       height : 35px;
+         padding-top : 15px;
+          cursor :pointer;
+          border-radius: 30px; 
+}

@@ -1,12 +1,12 @@
 import React from 'react'
-import "./Home.css"
+import "./Methode.css"
 import {  FiChevronLeft,FiChevronRight,FiChevronsLeft,FiChevronsRight } from "react-icons/fi";
 import { useState, useEffect } from 'react';
 
  import {MASTERData} from "../utility/masterData"
 
    
-export const LocalHome = () => {
+export const Method1 = () => {
     const [master, setMaster] = useState("");
     const [editId, setEditId] = useState(0);
     const [Data, setData] = useState([]);
@@ -82,7 +82,7 @@ export const LocalHome = () => {
             <div className='innerbox_content'>
               {
                 Data.length > 0 && Data.map((e)=>(
-                  <p key={e.id} onClick={()=>setEditId(e.id)}  style={{background : `${e.master == false ? "red" : e.id == editId ? "blue" :""}`, cursor : "pointer"}} >{`${e.master == true ? e.name : "Data copyed/moved"}`} </p> 
+                  <p key={e.id} onClick={()=>setEditId(e.id)}  style={{background : `${e.master == false ? "red" : e.id == editId ? "blue" :""}`, cursor : "pointer", border : "1px solid black", width :"250px"}} >{`${e.master == true ? e.name : e.name }`} </p> 
                 ))
               }
             
@@ -101,7 +101,7 @@ export const LocalHome = () => {
              <div className='innerbox_content' >
              {
               Data.length  > 0 && Data.filter((a)=>a.newElement == true).map((a)=>(
-                <p key={a.id} onClick={()=>setEditId(a.id)} style={{background : `${a.id ==editId ? "blue" : "" }`, cursor : "pointer" }} >{a.name}</p>
+                <p key={a.id} onClick={()=>setEditId(a.id)} style={{background : `${a.id ==editId ? "blue" : "" }`, cursor : "pointer", border : "1px solid black", width :"250px" }} >{a.name}</p>
               ))
              }  
                     
